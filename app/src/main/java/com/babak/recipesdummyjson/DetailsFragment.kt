@@ -5,12 +5,15 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.babak.recipesdummyjson.api.ApiUtilis
 import com.babak.recipesdummyjson.databinding.FragmentDetailsBinding
 
 
 class DetailsFragment : Fragment() {
-    var _binding:FragmentDetailsBinding?=null
-    val binding get() = _binding!!
+    private var _binding:FragmentDetailsBinding?=null
+    private val binding get() = _binding!!
+    private val api = ApiUtilis.createApi()
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -23,6 +26,11 @@ class DetailsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+    }
+
+    private fun getOneCard(){
+
     }
 
     override fun onDestroyView() {

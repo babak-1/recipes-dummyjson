@@ -3,8 +3,11 @@ package com.babak.recipesdummyjson.adapters
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.babak.recipesdummyjson.R
 import com.babak.recipesdummyjson.api.models.CardModel
 import com.babak.recipesdummyjson.databinding.CardItemBinding
+import com.babak.recipesdummyjson.utils.imageLoad
+import com.bumptech.glide.Glide
 import com.squareup.picasso.Picasso
 
 class AdapterCards : RecyclerView.Adapter<AdapterCards.CardsViewHolder>() {
@@ -25,10 +28,12 @@ class AdapterCards : RecyclerView.Adapter<AdapterCards.CardsViewHolder>() {
 
     override fun onBindViewHolder(holder: CardsViewHolder, position: Int) {
         val cards = allCards[position]
-        holder.cardItemBinding.cuisineRecipe.text = cards.cuisine
-        holder.cardItemBinding.nameRecipe.text = cards.name
-        holder.cardItemBinding.ratingRecipe.text = cards.rating.toString()
-        Picasso.get().load(cards.image).into(holder.cardItemBinding.imageRecipe);
+        holder.cardItemBinding.card = cards
+//        holder.cardItemBinding.cuisineRecipe.text = cards.cuisine
+//        holder.cardItemBinding.nameRecipe.text = cards.name
+//        holder.cardItemBinding.ratingRecipe.text = cards.rating.toString()
+//
+//        holder.cardItemBinding.imageRecipe.imageLoad(cards.image)
 
         holder.cardItemBinding.oneCard.setOnClickListener {
             cards.id?.let { id -> onclickNavigate(id) }
